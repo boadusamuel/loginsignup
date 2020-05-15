@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  width: 100%;
+}
+
+form {
+  width: 300px;
+}
+
+a:link {
+  text-decoration: none !important;
+}
+
+.welcome {
+  height: 80vh !important;
+  width: 100% !important;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+#index{
+
+  background: rgb(130, 164, 238)
+}
+
+#wpage{
+
+  background-image: url("./one.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+
+h4{
+  
+font-family: 'Roboto Mono', monospace;
+
+}
+
+#spage{
+
+  background: rgb(164, 238, 130)
+}
+
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: rgb(15, 2, 2);
+  text-align: center;
+}
