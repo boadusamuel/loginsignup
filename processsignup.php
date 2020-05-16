@@ -1,6 +1,6 @@
 <?php
-include_once "connection.php";
-include_once "functions.php";
+include "connection.php";
+include "functions.php";
 
 $fullname = strtoupper(trim($_POST['fullname']));
 
@@ -24,8 +24,6 @@ if (!isset($_POST['submit'])) {
     $readresult = checkdb($con);
 
 
-    if (pg_num_rows($readresult) > 0) {
-
         while ($row = pg_fetch_assoc($readresult)) {
 
             if ($row['username'] === $username) {
@@ -33,10 +31,10 @@ if (!isset($_POST['submit'])) {
                 header("location:signup.php?usernametaken= Username Not Available");
             } else {
 
-                insertdb($con, $fullname, $email, $username, $password);
+              $inserted =  insertdb($con, $fullname, $email, $username, $password);
 
                 header("location:index.php?success=Registration Successful");
             }
         }
     }
-}
+

@@ -32,7 +32,3 @@ function insertdb($con, $fullname, $email, $username, $password){
 
     return $result;
 }
-
-
-
-?>
