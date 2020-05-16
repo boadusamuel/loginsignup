@@ -1,4 +1,0 @@
-
-samuel:1234:SAMUEL BOADU:boadusamuel@gmail.com
-mavis:4567:MAVIS BOADU:mavis@yahoo.com
-

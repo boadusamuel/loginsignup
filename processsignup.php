@@ -23,6 +23,14 @@ if (!isset($_POST['submit'])) {
 
     $readresult = checkdb($con);
 
+    $row = pg_fetch_assoc($readresult);
+
+    if (empty($row)) {
+
+        insertdb($con, $fullname, $email, $username, $password);
+
+        header("location:index.php?success=Registration Successful");
+    } else {
 
         while ($row = pg_fetch_assoc($readresult)) {
 
@@ -31,10 +39,14 @@ if (!isset($_POST['submit'])) {
                 header("location:signup.php?usernametaken= Username Not Available");
             } else {
 
-              $inserted =  insertdb($con, $fullname, $email, $username, $password);
-
-                header("location:index.php?success=Registration Successful");
+                $inserted = true;
             }
         }
     }
+    if ($inserted === true) {
 
+        insertdb($con, $fullname, $email, $username, $password);
+
+        header("location:index.php?success=Registration Successful");
+    }
+}

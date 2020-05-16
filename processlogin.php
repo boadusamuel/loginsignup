@@ -23,7 +23,7 @@ if (!isset($_POST['submit'])) {
 
             if ($row['username'] === $username && $row['password'] === $password) {
 
-                header("location: welcome.php?username=$checkname");
+                header("location: welcome.php?username=".$row['fullname']."");
             } else {
 
                 header("location: index.php?loginerror=Wrong Username or Passowrd");
