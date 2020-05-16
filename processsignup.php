@@ -41,11 +41,15 @@ if (!isset($_POST['submit'])) {
             if ($row['username'] === $username) {
 
                 header("location:signup.php?usernametaken= Username Not Available");
+
+            break;
                
 
             } else {
 
                 $inserted = true;
+
+            break;
                 
             }
         }
