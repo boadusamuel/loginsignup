@@ -19,6 +19,8 @@ if (!isset($_POST['submit'])) {
     header('location: signup.php?fielderror=Please all fields are required');
 } else {
 
+    $inserted = false;
+
     $con = connected();
 
     $readresult = checkdb($con);
