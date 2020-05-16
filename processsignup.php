@@ -34,19 +34,19 @@ if (!isset($_POST['submit'])) {
         header("location:index.php?success=Registration Successful");
     } else {
 
-        echo "Checked next";
+        // echo "Checked next";
 
         while ($row) {
 
             if ($row['username'] === $username) {
 
-                // header("location:signup.php?usernametaken= Username Not Available");
-                echo "Name is here";
+                header("location:signup.php?usernametaken= Username Not Available");
+               
 
             } else {
 
-                // $inserted = true;
-                echo "Name not here";
+                $inserted = true;
+                
             }
         }
     }
