@@ -1,4 +1,6 @@
 <?php
+include_once "connection.php";
+include_once "functions.php";
 
 $fullname = strtoupper(trim($_POST['fullname']));
 
@@ -17,34 +19,24 @@ if (!isset($_POST['submit'])) {
     header('location: signup.php?fielderror=Please all fields are required');
 } else {
 
-    $data = $username . ":" . $password . ":" . $fullname . ":" . $email . "\n";
+    $con = connected();
+
+    $readresult = checkdb($con);
 
 
-    $file = fopen("users.txt", "a+");
+    if (pg_num_rows($readresult) > 0) {
 
-    $checked = "";
+        while ($row = pg_fetch_assoc($readresult)) {
 
-    while (!feof($file)) {
+            if ($row['username'] === $username) {
 
-        $line = fgets($file, filesize("users.txt"));
+                header("location:signup.php?usernametaken= Username Not Available");
+            } else {
 
-        $check = explode(":", $line);
+                insertdb($con, $fullname, $email, $username, $password);
 
-        if ($check[0] == $username) {
-
-            $checked = $username;
+                header("location:index.php?success=Registration Successful");
+            }
         }
     }
-
-    if (!empty($checked)) {
-
-        header("location:signup.php?usernametaken= Username Already Available");
-    } else {
-
-        fwrite($file, "$data");
-
-        header("location:index.php?success=Registration Successful");
-    }
-
-    fclose($file);
 }

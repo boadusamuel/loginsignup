@@ -1,4 +1,6 @@
 <?php
+include_once "connection.php";
+include_once "functions.php";
 
 $username = trim($_POST['username']);
 $password = $_POST['password'];
@@ -12,28 +14,22 @@ if (!isset($_POST['submit'])) {
 
     header("location: index.php?fillerror=Please fill all fields");
 } else {
+    $con = connected();
 
-    $file = fopen("users.txt", "r+");
+    $readresult = checkdb($con);
 
 
-    while (!feof($file)) {
+    if (pg_num_rows($readresult) > 0) {
 
-        $line = fgets($file);
+        while ($row = pg_fetch_assoc($readresult)) {
 
-        $check = explode(":", $line);
-        
-      
+            if ($row['username'] === $username && $row['password'] === $password) {
 
-        if ($check[0] == $username && $check[1] == $password) {
+                header("location: welcome.php?username=$checkname");
+            } else {
 
-            $checked = $check[0];
-
-            $checkname = $check[2];
+                header("location: index.php?loginerror=Wrong Username or Passowrd");
+            }
         }
     }
-
-    $checked == $username ? header("location: welcome.php?username=$checkname") : header("location: index.php?loginerror=Wrong Username or Passowrd");
-
-
-    fclose($file);
 }

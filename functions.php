@@ -11,8 +11,27 @@ $element = ' <div class="form-group">
 }
 
 
+function checkdb($con){
 
 
+$query = "SELECT * FROM users";
+
+$result = pg_query($con, $query);
+
+return $result;
+
+}
+
+function insertdb($con, $fullname, $email, $username, $password){
+
+    $query = "INSERT INTO users(
+        fullname, email, username, password) VALUES('$fullname', '$email', '$username', '$password');
+        ";
+
+    $result = pg_query($con, $query);
+
+    return $result;
+}
 
 
 
