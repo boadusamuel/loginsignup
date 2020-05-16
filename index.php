@@ -15,9 +15,9 @@
 </head>
 
 <body id="index">
-    <div class="col-12">
+    <div class="col-sm-12">
         <div class="row">
-            <div class="col-8 offset-2">
+            <div class="col-sm-12">
                 <?php if (isset($_GET['fillerror'])) { ?>
 
                     <div class="alert alert-danger text-center mt-3 mb-0"> <?php echo $_GET['fillerror'];   ?></div>
@@ -39,9 +39,7 @@
 
             <main class="col-12">
 
-                <div class="card text-left">
-                    <img class="card-img-top" src="holder.js/100px180/" alt="">
-                    <div class="card-body">
+                
 
                         <form action="processlogin.php" method="post">
                             <div class="mb-4">

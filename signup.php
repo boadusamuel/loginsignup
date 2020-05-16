@@ -21,7 +21,7 @@
 
     <div class="col-12">
         <div class="row">
-            <div class="col-8 offset-2">
+            <div class="col-12">
                 <?php if (isset($_GET['fielderror'])) { ?>
 
                     <div class="alert alert-danger text-center mt-3 mb-0"> <?php echo $_GET['fielderror'];   ?></div>
@@ -38,9 +38,7 @@
     <div class="container">
         <div class="row">
             <main class="col-12">
-                <div class="card text-left">
-                    <img class="card-img-top" src="holder.js/100px180/" alt="">
-                    <div class="card-body">
+                
                         <form action="processsignup.php" method="post">
                             <div class="mb-4">
                                 <h4 class="text-center font-weight-bold text-secondary">SignUp</h4>
