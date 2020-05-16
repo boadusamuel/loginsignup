@@ -29,8 +29,6 @@ if (!isset($_POST['submit'])) {
 
     if (empty($row)) {
 
-        echo "Empty";
-
         insertdb($con, $fullname, $email, $username, $password);
 
         header("location:index.php?success=Registration Successful");
@@ -42,17 +40,20 @@ if (!isset($_POST['submit'])) {
 
             if ($row['username'] === $username) {
 
-                header("location:signup.php?usernametaken= Username Not Available");
+                // header("location:signup.php?usernametaken= Username Not Available");
+                echo "Name is here";
+
             } else {
 
-                $inserted = true;
+                // $inserted = true;
+                echo "Name not here";
             }
         }
     }
     if ($inserted === true) {
 
         echo "Worked on it";
-        
+
         insertdb($con, $fullname, $email, $username, $password);
 
         header("location:index.php?success=Registration Successful");
