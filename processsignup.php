@@ -36,7 +36,7 @@ if (!isset($_POST['submit'])) {
 
         echo "Checked next";
 
-        while ($row = pg_fetch_assoc($readresult)) {
+        while ($row) {
 
             if ($row['username'] === $username) {
 
