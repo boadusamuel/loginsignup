@@ -29,10 +29,14 @@ if (!isset($_POST['submit'])) {
 
     if (empty($row)) {
 
+        echo "Empty";
+
         insertdb($con, $fullname, $email, $username, $password);
 
         header("location:index.php?success=Registration Successful");
     } else {
+
+        echo "Checked next";
 
         while ($row = pg_fetch_assoc($readresult)) {
 
@@ -47,6 +51,8 @@ if (!isset($_POST['submit'])) {
     }
     if ($inserted === true) {
 
+        echo "Worked on it";
+        
         insertdb($con, $fullname, $email, $username, $password);
 
         header("location:index.php?success=Registration Successful");
