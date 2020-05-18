@@ -53,7 +53,7 @@
 
                             inputElement("text", "password", "Password");
 
-                            inputElement("submit", "submit", "", "btn btn-outline-success form-control")
+                            inputElement("submit", "submit", "", "btn btn-success form-control")
                             ?>
                             <p class="text-center">Have an account? <a href="index.php">LogIn here</a> </p>
                         </form>

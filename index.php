@@ -53,7 +53,7 @@
 
                             inputElement("text", "password", "Password");
 
-                            inputElement("submit", "submit", "", "btn btn-outline-primary form-control")
+                            inputElement("submit", "submit", "", "btn btn-primary form-control")
                             ?>
                             <p class="text-center text-secondary">
                                 Don't have an account? <a href="signup.php"> SignUp here</a>
